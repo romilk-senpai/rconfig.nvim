@@ -7,7 +7,7 @@ return {
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
 
       -- "hrsh7th/cmp-nvim-lsp",
     },
@@ -65,12 +65,14 @@ return {
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       -- capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
       local servers = {
+        -- c3_lsp = {},
         csharp_ls = {},
         cssls = {},
         gopls = {},
         html = {},
         jsonls = {},
         clangd = {},
+        cmake = {},
         rust_analyzer = {},
         asm_lsp = {},
 
