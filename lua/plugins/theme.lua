@@ -1,17 +1,17 @@
 return {
   {
     'TheNiteCoder/mountaineer.vim',
-    name = 'mountainer'
+    name = 'mountainer',
   },
 
   {
     'miikanissi/modus-themes.nvim',
-    name = 'modus-themes'
+    name = 'modus-themes',
   },
 
   {
     'projekt0n/github-nvim-theme',
-    name = 'github-theme'
+    name = 'github-theme',
   },
 
   {
