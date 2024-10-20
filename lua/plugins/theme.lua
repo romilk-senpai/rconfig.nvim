@@ -15,7 +15,7 @@ return {
   },
 
   {
-    'e-q/okcolors.nvim',
+    'romilk-senpai/okcolors.nvim',
     name = 'okolors',
     priority = 1000,
     init = function()
