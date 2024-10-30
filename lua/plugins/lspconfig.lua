@@ -1,15 +1,24 @@
 return {
-  { 'Bilal2453/luvit-meta', lazy = true },
+  {
+    'Bilal2453/luvit-meta',
+    lazy = true,
+  },
   {
     'neovim/nvim-lspconfig',
     dependencies = {
-      { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
+      {
+        'williamboman/mason.nvim',
+        config = true,
+      }, -- NOTE: Must be loaded before dependants
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
-      { 'j-hui/fidget.nvim', opts = {} },
+      {
+        'j-hui/fidget.nvim',
+        opts = {},
+      },
 
-      -- "hrsh7th/cmp-nvim-lsp",
+      'hrsh7th/cmp-nvim-lsp',
     },
     config = function()
       vim.api.nvim_create_autocmd('LspAttach', {
@@ -20,12 +29,12 @@ return {
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
 
-          -- map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-          -- map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-          -- map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-          -- map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-          -- map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-          -- map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+          map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+          map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+          map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+          map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
+          map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+          map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
           map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
           map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
@@ -63,7 +72,7 @@ return {
       })
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
-      -- capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+      capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
       local servers = {
         -- c3_lsp = {},
         csharp_ls = {},
@@ -74,7 +83,7 @@ return {
         clangd = {},
         cmake = {},
         rust_analyzer = {},
-        asm_lsp = {},
+        -- asm_lsp = {},
 
         lua_ls = {
           settings = {
