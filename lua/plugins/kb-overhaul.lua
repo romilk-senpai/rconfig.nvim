@@ -20,4 +20,18 @@ return {
   vim.keymap.set('n', '<M-x>', ':<C-f>i', { desc = 'Emacs enjoyer' }),
 
   vim.keymap.set('n', '<BS>', 'dhi'),
+
+  vim.keymap.set('n', '<A-Up>', '<Esc>:m .-3<CR>==gi<ESC>'),
+  vim.keymap.set('n', '<A-Down>', '<Esc>:m .+1<CR>==gi<ESC>'),
+
+  vim.keymap.set('n', '<A-j', '<Esc>:m .+1<CR>==gi<ESC>'),
+  vim.keymap.set('n', '<A-k>', '<Esc>:m .-3<CR>==gi<ESC>'),
+
+  vim.keymap.set('n', '<leader>y', '"+y'),
+  vim.keymap.set('n', '<leader>Y', '"+Y'),
+  vim.keymap.set('n', '<leader>d', '"_d'),
+
+  vim.keymap.set('v', '<leader>y', '"+y'),
+  vim.keymap.set('v', '<leader>d', '"_d'),
+  vim.keymap.set('x', '<leader>p', '"_dP'),
 }

@@ -12,6 +12,11 @@ return {
   },
   opts = {
     filesystem = {
+      filtered_items = {
+        never_show_by_pattern = {
+          '*.meta',
+        },
+      },
       window = {
         mappings = {
           ['\\'] = 'close_window',
