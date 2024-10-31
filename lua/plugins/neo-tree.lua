@@ -13,7 +13,7 @@ return {
   opts = {
     filesystem = {
       filtered_items = {
-        never_show_by_pattern = {
+        hide_by_pattern = {
           '*.meta',
         },
       },
