@@ -83,6 +83,7 @@ return {
         clangd = {},
         cmake = {},
         rust_analyzer = {},
+        ts_ls = {},
         -- asm_lsp = {},
 
         lua_ls = {

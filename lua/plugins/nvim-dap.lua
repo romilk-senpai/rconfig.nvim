@@ -5,6 +5,7 @@ return {
     'nvim-neotest/nvim-nio',
     'williamboman/mason.nvim',
     'jay-babu/mason-nvim-dap.nvim',
+    'julianolf/nvim-dap-lldb',
     'leoluz/nvim-dap-go',
   },
   keys = function(_, keys)
@@ -39,6 +40,8 @@ return {
       },
     }
 
+    local lldb_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.11.1/bin'
+
     dapui.setup()
 
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
@@ -52,12 +55,29 @@ return {
       args = { vstuc_path .. 'UnityDebugAdapter.dll' },
       name = 'Attach to Unity',
     }
+
+    require('dap-lldb').setup()
+    -- dap.configurations.c = {
+    --   {
+    --     name = 'Launch debugger',
+    --     type = 'lldb',
+    --     request = 'launch',
+    --     cwd = '${workspaceFolder}',
+    --     program = function()
+    --       local out = vim.fn.system { 'make', 'debug' }
+    --       if vim.v.shell_error ~= 0 then
+    --         vim.notify(out, vim.log.levels.ERROR)
+    --         return nil
+    --       end
+    --       return 'path/to/executable'
+    --     end,
+    --   },
+    -- }
     dap.configurations.cs = {
       {
         type = 'vstuc',
         request = 'attach',
         name = 'Attach to Unity',
-        logFile = vim.env.HOME .. '/vstuc.log',
         projectPath = function()
           local path = vim.fn.expand '%:p'
           while true do
@@ -97,6 +117,23 @@ return {
     require('dap-go').setup {
       delve = {
         detached = vim.fn.has 'win32' == 0,
+      },
+      dap_configurations = {
+        {
+          type = 'go',
+          name = 'Debug (Build Flags)',
+          request = 'launch',
+          program = '${file}',
+          buildFlags = require('dap-go').get_build_flags,
+        },
+        {
+          type = 'go',
+          name = 'Debug (Build Flags & Arguments)',
+          request = 'launch',
+          program = '${file}',
+          args = require('dap-go').get_arguments,
+          buildFlags = require('dap-go').get_build_flags,
+        },
       },
     }
   end,
