@@ -29,9 +29,9 @@ return {
 
   vim.keymap.set('n', '<leader>y', '"+y'),
   vim.keymap.set('n', '<leader>Y', '"+Y'),
-  vim.keymap.set('n', '<leader>d', '"_d'),
+  vim.keymap.set('n', 'd', '"_d'),
 
   vim.keymap.set('v', '<leader>y', '"+y'),
-  vim.keymap.set('v', '<leader>d', '"_d'),
-  vim.keymap.set('x', '<leader>p', '"_dP'),
+  vim.keymap.set('v', 'd', '"_d'),
+  vim.keymap.set('x', 'p', '"_dP'),
 }
