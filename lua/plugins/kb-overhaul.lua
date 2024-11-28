@@ -21,7 +21,7 @@ return {
 
   vim.keymap.set('n', '<BS>', 'dhi'),
 
-  vim.keymap.set('n', '<A-Up>', '<Esc>:m .-3<CR>==gi<ESC>'),
+  vim.keymap.set('n', '<A-Up>', '<Esc>:m .-2<CR>==gi<ESC>'),
   vim.keymap.set('n', '<A-Down>', '<Esc>:m .+1<CR>==gi<ESC>'),
 
   vim.keymap.set('n', '<A-j', '<Esc>:m .+1<CR>==gi<ESC>'),
