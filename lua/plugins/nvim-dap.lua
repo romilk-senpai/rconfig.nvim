@@ -40,8 +40,6 @@ return {
       },
     }
 
-    local lldb_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.11.1/bin'
-
     dapui.setup()
 
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
