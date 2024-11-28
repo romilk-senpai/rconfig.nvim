@@ -9,15 +9,10 @@ return {
       {
         'williamboman/mason.nvim',
         config = true,
-      }, -- NOTE: Must be loaded before dependants
+      },
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
-
-      {
-        'j-hui/fidget.nvim',
-        opts = {},
-      },
-
+      'j-hui/fidget.nvim',
       'hrsh7th/cmp-nvim-lsp',
     },
     config = function()
@@ -74,18 +69,20 @@ return {
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
       local servers = {
-        -- c3_lsp = {},
-        csharp_ls = {},
         cssls = {},
-        gopls = {},
         html = {},
         jsonls = {},
         clangd = {},
-        cmake = {},
-        rust_analyzer = {},
         ts_ls = {},
+        -- gopls = {},
+        -- cmake = {},
+        -- rust_analyzer = {},
+        -- c3_lsp = {},
+        -- csharp_ls = {},
         -- asm_lsp = {},
-
+        haxe_language_server = {
+          command = { 'node', '/home/animezaya/projects/haxe-language-server/bin/server.js' },
+        },
         lua_ls = {
           settings = {
             Lua = {
