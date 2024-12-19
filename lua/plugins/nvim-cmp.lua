@@ -47,7 +47,7 @@ return {
           if luasnip.expand_or_locally_jumpable() then
             luasnip.expand_or_jump()
           else
-            cmp.mapping.confirm { select = true }
+            cmp.confirm { select = true }
           end
         end, { 'i', 's' }),
         ['<C-Tab>'] = cmp.mapping(function()
