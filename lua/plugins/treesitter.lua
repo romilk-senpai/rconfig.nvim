@@ -4,7 +4,7 @@ return {
   config = function()
     require('nvim-treesitter.configs').setup {
       modules = {},
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'haxe' },
+      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
       sync_install = false,
       ignore_install = {},
       auto_install = true,
@@ -15,13 +15,5 @@ return {
       indent = { enable = true, disable = { 'ruby' } },
     }
     local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
-    parser_config['haxe'] = {
-      install_info = {
-        url = 'https://github.com/vantreeseba/tree-sitter-haxe',
-        files = { 'src/parser.c', 'src/scanner.c' },
-        branch = 'main',
-      },
-      filetype = 'haxe',
-    }
   end,
 }

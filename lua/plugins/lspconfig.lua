@@ -69,32 +69,33 @@ return {
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
       local servers = {
-        cssls = {},
-        html = {},
-        jsonls = {},
-        clangd = {},
-        ts_ls = {},
-        pyright = {},
-        jdtls = {},
+        gopls = {},
+        -- cssls = {},
+        -- html = {},
+        -- jsonls = {},
+        -- clangd = {},
+        -- ts_ls = {},
+        -- pyright = {},
+        -- jdtls = {},
         -- java_language_server = {},
         -- gopls = {},
         -- cmake = {},
         -- rust_analyzer = {},
         -- c3_lsp = {},
-        csharp_ls = {},
+        -- csharp_ls = {},
         -- asm_lsp = {},
-        haxe_language_server = {
-          command = { 'node', '/home/animezaya/projects/haxe-language-server/bin/server.js' },
-        },
-        lua_ls = {
-          settings = {
-            Lua = {
-              completion = {
-                callSnippet = 'Replace',
-              },
-            },
-          },
-        },
+        -- haxe_language_server = {
+        --   command = { 'node', '/home/animezaya/projects/haxe-language-server/bin/server.js' },
+        -- },
+        -- lua_ls = {
+        --   settings = {
+        --     Lua = {
+        --       completion = {
+        --         callSnippet = 'Replace',
+        --       },
+        --     },
+        --   },
+        -- },
       }
 
       require('mason').setup()
