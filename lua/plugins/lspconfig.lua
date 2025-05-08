@@ -1,15 +1,12 @@
 return {
-  -- Main LSP Configuration
   'neovim/nvim-lspconfig',
   dependencies = {
     { 'williamboman/mason.nvim', opts = {} },
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
 
-    -- Useful status updates for LSP.
     { 'j-hui/fidget.nvim', opts = {} },
 
-    -- Allows extra capabilities provided by blink.cmp
     'saghen/blink.cmp',
   },
   config = function()
@@ -103,6 +100,10 @@ return {
     }
 
     local capabilities = require('blink.cmp').get_lsp_capabilities()
+
+    vim.keymap.set('n', 'gh', '<cmd>ClangdSwitchSourceHeader<CR>', {
+      desc = 'Switch Source/Header (C/C++)',
+    })
 
     local servers = {
       clangd = {},
